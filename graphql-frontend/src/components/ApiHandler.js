@@ -24,7 +24,7 @@ const queryBooks = async () => {
     return data;
 }
 
-const queryBooksById = async () => {
+const queryBooksById = async (id) => {
     let data = [];
     var query =
         `query GetBooksById ($id: Int) {
@@ -45,7 +45,7 @@ const queryBooksById = async () => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
-            body: JSON.stringify({ query })
+            body: JSON.stringify({ query, variables: {id} })
         });
         data = await response.json(); // Wait for the JSON result
     } catch (error) {
