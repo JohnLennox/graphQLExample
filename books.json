@@ -1,0 +1,34 @@
+[
+  {
+    "bookId": 17,
+    "name": "Harry Potter",
+    "pages": 267,
+    "author": {
+      "name": "Jk Rowling"
+    }
+  },
+  {
+    "bookId": 54,
+    "name": "Memory Man",
+    "pages": 560
+  },
+  {
+    "bookId": 66,
+    "name": "Exhalation",
+    "pages": 368
+  },
+  {
+    "bookId": 67,
+    "name": "A The Martian",
+    "pages": 154,
+    "author": {
+      "name": "Andy Weir"
+    }
+  },
+  {
+    "bookId": 68,
+    "name": "A The Martian",
+    "pages": 154,
+    "author": {}
+  }
+]

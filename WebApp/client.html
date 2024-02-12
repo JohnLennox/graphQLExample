@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <title>GraphQL Client</title>
+  <style>
+    textarea {
+      width: 100%;
+      min-height: 30rem;
+      font-family: "Lucida Console", Monaco, monospace;
+      font-size: 0.8rem;
+      line-height: 1.2;
+    }
+  </style>
+  <script>
+    function runQuery() {     
+      var name = document.getElementById("filter").value;
+      
+      var query = `query GetBooks($name: String)  {
+		  books (nameContains: $name) {
+			name
+			pages
+		  }
+		}`;
+
+      fetch('http://localhost:4000/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          query,
+          variables: {name}
+        })
+      })
+        .then(r => r.json())
+        .then(data => { document.getElementById("results").value = JSON.stringify(data, undefined, 4) });
+    }
+  </script>
+</head>
+
+<body>
+  <input id="filter" placeholder="filter" type="text"/>
+  <input type="button" value="Run GraphQL Query" onclick="runQuery()" />
+  <br />
+  <textarea id="results" cols="30" rows="10"></textarea>
+</body>
